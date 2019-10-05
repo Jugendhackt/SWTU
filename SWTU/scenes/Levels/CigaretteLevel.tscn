@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/CigaretteLevel.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="CigaretteLevel" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Player" type="Sprite" parent="." index="1"]
+modulate = Color( 0.831373, 0.803922, 0.356863, 1 )
+position = Vector2( 512, 896 )
+texture = ExtResource( 3 )
+
+[node name="SpawnUp" type="Node2D" parent="." index="2"]
+position = Vector2( 512, 352 )
+
+[node name="SpawnDown" type="Node2D" parent="." index="3"]
+position = Vector2( 512, 1600 )
+
+[node name="SpawnRight" type="Node2D" parent="." index="4"]
+position = Vector2( 928, 896 )
+
+[node name="SpawnLeft" type="Node2D" parent="." index="5"]
+position = Vector2( 160, 896 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
