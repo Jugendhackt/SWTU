@@ -25,6 +25,8 @@ Globals="*res://scenes/Globals.tscn"
 
 [display]
 
+window/size/width=1080
+window/size/height=1920
 window/handheld/orientation="portrait"
 
 [rendering]
