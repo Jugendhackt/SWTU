@@ -12,5 +12,4 @@ func _ready():
 		var spawnX = windowSizeX/3 * i + spawnOffsetX 
 		var offset = Vector2(spawnX,spawnY)
 		children[i].translate(offset)
-		print(spawnX)
 	pass 
