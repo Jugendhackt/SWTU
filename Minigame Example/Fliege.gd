@@ -3,6 +3,8 @@ extends KinematicBody2D
 export var startVel = Vector2()
 var vel = Vector2()
 
+var deltaSum = 0
+
 func _ready():
 	vel = startVel
 
