@@ -1,8 +1,6 @@
-extends Node2D
+extends "res://scripts/Level.gd"
 
-onready var timer = $LevelTimer
-
-onready var badboy = load("res://scenes/BadBoy.tscn")
+onready var badboy = load("res://scenes/Cigarette/BadBoy.tscn")
 const dirs = ["Up", "Left", "Down", "Right"]
 
 func _ready():
@@ -15,7 +13,3 @@ func random_bboy():
 
 func start_level(time):
 	timer.start(time)
-
-func _on_LevelTimer_timeout():
-	print("YOU LOST!")
-	
