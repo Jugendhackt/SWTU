@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "default"
+
+[sub_resource type="Animation" id=3]
+resource_name = "die"
+
+[node name="World" type="Node2D"]
+
+[node name="Fliege" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fliege"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Fliege"]
+modulate = Color( 0.65098, 0.262745, 0.262745, 1 )
+texture = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="Fliege"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fliege/Area2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fliege"]
+anims/default = SubResource( 2 )
+anims/die = SubResource( 3 )
+[connection signal="input_event" from="Fliege/Area2D" to="Fliege" method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="Fliege/Area2D" to="Fliege" method="_on_Area2D_mouse_entered"]
