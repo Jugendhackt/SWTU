@@ -5,3 +5,5 @@
 *.TMP
 *.pck
 *.keystore
+export/
+SWTU/export_presets.cfg
