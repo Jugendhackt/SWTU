@@ -2,7 +2,8 @@ extends KinematicBody2D
 export var speed = 300
 
 var windowSizeX = OS.get_real_window_size().x
-var windowSizeZ = OS.get_real_window_size().y
+var windowSizeY = OS.get_real_window_size().y
+var offsetX = OS.get_real_window_size().x/6
 var mState = 0
 
 var moving_left = -1
@@ -24,7 +25,7 @@ func getInput():
 
 func _ready():
 	for i in range(3):
-		rails.append(windowSizeX/3 * i + get_parent().offsetX)
+		rails.append(windowSizeX/3 * i + offsetX)
 	rotate(deg2rad(180))
 	
 func _physics_process(delta):
