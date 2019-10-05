@@ -8,7 +8,6 @@ var selButton = ""
 var player = AudioStreamPlayer.new()
 
 func _on_finsh(var button):
-	print("hello")
 	roundFinished = true
 	selButton = button
 
@@ -24,10 +23,16 @@ func _ready():
 	
 	yield(get_tree().create_timer(0.2), "timeout")
 	
-	var dir = "res://aufsammeln_"
+	var dir = "res://zigarettenstampfen_"
 	dir += String(random)
 	dir += ".wav"
 	player.stream = load(dir)
+	
+	if(random == 4):
+		player.volume_db = 1
+	else:
+		player.volume_db = 11
+	
 	player.play()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,10 +73,16 @@ func _process(delta):
 		
 		yield(get_tree().create_timer(2.0), "timeout")
 		
-		var dir = "res://aufsammeln_"
+		var dir = "res://zigarettenstampfen_"
 		dir += String(random)
 		dir += ".wav"
 		player.stream = load(dir)
+		
+		if(random == 4):
+			player.volume_db = 1
+		else:
+			player.volume_db = 11
+		
 		player.play()
 			
 func _deactivateBtns():
