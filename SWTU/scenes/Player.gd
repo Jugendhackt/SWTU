@@ -23,8 +23,9 @@ func getInput():
 			target += 1
 
 func _ready():
-	for i in range(get_parent().railcount):
+	for i in range(3):
 		rails.append(windowSizeX/3 * i + get_parent().offsetX)
+	rotate(deg2rad(180))
 	
 func _physics_process(delta):
 	getInput()
