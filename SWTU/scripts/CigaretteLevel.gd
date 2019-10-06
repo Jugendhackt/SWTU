@@ -10,6 +10,8 @@ var selButton = ""
 
 var player = AudioStreamPlayer.new()
 
+signal btns_ready
+
 func _on_finsh(var button):
 	roundFinished = true
 	selButton = button
@@ -46,13 +48,9 @@ func random_bboy():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(player.playing):
-		_deactivateBtns()
-	else:
-		_activateBtns()
-
-	if(roundFinished == true):
+	if(roundFinished == true && !player.playing):
 		roundFinished = false
+		_activateBtns()
 		
 		if(random == 1):
 			if(selButton == "left"):
@@ -93,6 +91,7 @@ func _process(delta):
 			player.volume_db = 11
 		
 		player.play()
+		emit_signal("btns_ready")
 			
 func _deactivateBtns():
 	$right.disabled = true
