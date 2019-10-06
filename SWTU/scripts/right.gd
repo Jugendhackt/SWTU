@@ -12,14 +12,16 @@ func _ready():
 func _pressed():
 	if(ready):
 		get_node("../")._deactivateBtns()
+		get_node("../").player.stop()
 		emit_signal("finish", "right")
 		ready = false
 
 func _unhandled_input(event):
 	if event is InputEventKey:
-		if event.pressed and event.scancode == KEY_RIGHT:
+		if event.is_action_released("ui_right") and event.scancode == KEY_RIGHT:
 			if(ready):
 				get_node("../")._deactivateBtns()
+				get_node("../").player.stop()
 				emit_signal("finish", "right")
 				ready = false
 

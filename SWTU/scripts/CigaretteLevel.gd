@@ -52,6 +52,8 @@ func _process(delta):
 		roundFinished = false
 		_activateBtns()
 		
+		emit_signal("btns_ready")
+		
 		if(random == 1):
 			if(selButton == "left"):
 				print("Left? Thats right!")
@@ -91,7 +93,6 @@ func _process(delta):
 			player.volume_db = 11
 		
 		player.play()
-		emit_signal("btns_ready")
 			
 func _deactivateBtns():
 	$right.disabled = true
