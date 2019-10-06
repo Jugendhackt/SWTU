@@ -1,7 +1,7 @@
 extends "res://scripts/Level.gd"
 
 export var railcount = 3
-var bagScene = load("res://scenes/BagSpawner.tscn")
+var bagScene = load("res://scenes/Plastic/BagSpawner.tscn")
 
 var windowSizeX = OS.get_real_window_size().x
 var windowSizeY = OS.get_real_window_size().y
@@ -18,3 +18,6 @@ func _ready():
 		
 func _physics_process(delta):
 	pass
+	
+func handlePlayerCollision(var collider: KinematicCollision2D):
+	remove_child(collider.collider)

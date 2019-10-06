@@ -1,12 +1,9 @@
 extends Node2D
 
-var bagScene = load("res://scenes/Tuete.tscn")
+var bagScene = load("res://scenes/Plastic/Tuete.tscn")
 onready var mTimer = $mTimer
 var rand = RandomNumberGenerator.new()
-var timeMin = 15
-var timeMax = 50
 
-var difficulty
 var diffOffset
 
 func _ready():
@@ -15,10 +12,6 @@ func _ready():
 	diffOffset = rand.randf_range(1 * tMod,10 * tMod)
 	mTimer.start(diffOffset)
 	pass 
-	
-func setTimes(var times):
-	timeMin = times[0]
-	timeMax = times[1]
 	
 func onTimeOut():
 	var bag = bagScene.instance()

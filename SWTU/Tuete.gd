@@ -5,15 +5,10 @@ var go = false
 
 var direction = Vector2(0,1)
 var rand = RandomNumberGenerator.new()
-
-func _init(waitMin,waitMax,speed,spawnX,spawnY):
-	waitRangeMin = waitMin
-	waitRangeMax = waitMax
-	mSpawnX = spawnX
-	mSpawnY = spawnY
-	mSpeed = speed
+var mAudio = AudioStreamPlayer2D.new()
 
 func _ready():
+	mAudio.set_stream(load("res://scenes/Plastic/zigarettenstampfen_1.wav"))
 	pass
 	
 func setPosition(x,y):
@@ -26,10 +21,5 @@ func go():
 	go = true
 	
 func _physics_process(delta):
-<<<<<<< HEAD
 	if go:
 		move_and_collide(direction * speed * delta)
-=======
-	if mTimer.time_left == 0:
-		move_and_collide(direction * mSpeed * delta)
->>>>>>> b79b466c1d539b510befab433ca6cd8e6bc46da6
