@@ -1,20 +1,25 @@
 extends KinematicBody2D
 
-var mTimer: Timer = get_children()[0]
-export var waitRangeMin: float = 0
-export var waitRangeMax: float = 1
-export var speed = 400
-export var spawnX = 0
-export var spawnY = 0
+export var speed = 1000
+var go = false
+
 var direction = Vector2(0,1)
-var initialized = false
 var rand = RandomNumberGenerator.new()
+var mAudio = AudioStreamPlayer2D.new()
 
 func _ready():
-	var actualWaitTime = rand.randf_range(waitRangeMin,waitRangeMax)
-	mTimer.wait_time = actualWaitTime
-	mTimer.start()
+	mAudio.set_stream(load("res://scenes/Plastic/zigarettenstampfen_1.wav"))
+	pass
+	
+func setPosition(x,y):
+	translate(Vector2(x,y))
+	
+func setSpeed(s):
+	speed = s
+	
+func go():
+	go = true
 	
 func _physics_process(delta):
-	if mTimer.time_left == 0:
+	if go:
 		move_and_collide(direction * speed * delta)

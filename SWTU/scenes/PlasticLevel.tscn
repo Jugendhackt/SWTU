@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Levels/PlasticLevel.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Plastic/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Plastic/Plastik Schildkröte Background.png" type="Texture" id=4]
+
+[node name="PlasticLevel" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Player" parent="." index="2" instance=ExtResource( 3 )]
+
+[node name="Sprite" type="Sprite" parent="." index="3"]
+position = Vector2( 509.337, 973.631 )
+z_index = -5
+texture = ExtResource( 4 )
