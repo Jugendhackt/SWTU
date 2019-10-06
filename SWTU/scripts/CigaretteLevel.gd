@@ -4,6 +4,8 @@ onready var badboy = load("res://scenes/BadBoy.tscn")
 const dirs = ["Up", "Left", "Down", "Right"]
 
 var random = null
+var success = 0
+var success_min = 0
 
 var roundFinished = false
 var selButton = ""
@@ -20,6 +22,8 @@ func _ready():
 	._ready()
 	randomize()
 	random_bboy()
+	
+	success_min = 2 + int(Globals.get_difficulty() / 40)
 	
 	random = randi()%4+1
 	self.add_child(player)
@@ -58,24 +62,28 @@ func _process(delta):
 		if(random == 1):
 			if(selButton == "left"):
 				print("Left? Thats right!")
+				correct()
 			else:
 				print("Thats false!")
 				
 		elif(random == 2):
 			if(selButton == "right"):
 				print("Right? Thats right!")
+				correct()
 			else:
 				print("Thats false!")
 				
 		elif(random == 3):
 			if(selButton == "top"):
 				print("Top? Thats right!")
+				correct()
 			else:
 				print("Thats false!")
 				
 		elif(random == 4):
 			if(selButton == "bottom"):
 				print("Bottom? Thats right!")
+				correct()
 			else:
 				print("Thats false!")
 				
@@ -106,3 +114,9 @@ func _activateBtns():
 	$left.disabled = false
 	$top.disabled = false
 	$bottom.disabled = false
+
+func correct():
+	success += 1
+	if success >= success_min:
+		Globals.round_finished(false)
+		Globals.random_level()

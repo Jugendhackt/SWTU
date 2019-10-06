@@ -12,7 +12,7 @@ func _ready():
 	print("Called ready in Level")
 	var difficulty = Globals.get_difficulty()
 	print("Level difficulty: " + str(difficulty))
-	timer.start(baseTime*Globals.get_time_modifier())
+	timer.start((baseTime / 4) + (baseTime / 4) * 3 * Globals.get_time_modifier())
 	print("Level timer: " + str(timer.time_left))
 
 func _process(delta):

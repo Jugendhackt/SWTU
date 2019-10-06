@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 one_shot = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 550, 220 )
 human = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -23,7 +24,7 @@ z_index = -5
 texture = ExtResource( 3 )
 
 [node name="endCollider" type="KinematicBody2D" parent="."]
-position = Vector2( 0, 1932 )
+position = Vector2( 507.584, 1927.39 )
 script = ExtResource( 4 )
 
 [node name="endColliderShape " type="CollisionShape2D" parent="endCollider"]

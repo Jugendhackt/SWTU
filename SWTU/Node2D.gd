@@ -32,21 +32,7 @@ func _ready():
 		add_child(bagSpawner)
 		
 func _process(delta):
-	for player in audioPlayers:
-		var cBag
-		var lastDist = 5000000
-		for bag in bags[audioPlayers.find(player)]:
-			var distance = sqrt(pow(bag.position.x,2) + pow(bag.position.y,2))
-			if(distance < lastDist):
-				cBag = bag
-				lastDist = distance
-		if cBag == null:
-			return
-			
-		var distance = sqrt(pow(cBag.position.x,2) + pow(cBag.position.y,2))
-		player.set_volume_db(distMod/distance)
-		if(!player.isPlaying()):
-			player.play()
+	pass
 		
 	
 func handlePlayerCollision(var collider: KinematicCollision2D):

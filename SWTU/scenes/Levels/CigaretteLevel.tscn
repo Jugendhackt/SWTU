@@ -19,6 +19,7 @@
 
 [node name="CigaretteLevel" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+baseTime = 15
 
 [node name="left" type="Button" parent="." index="1"]
 margin_top = 640.0
@@ -57,24 +58,29 @@ text = "Bottom"
 script = ExtResource( 6 )
 
 [node name="Player" type="Sprite" parent="." index="5"]
+visible = false
 modulate = Color( 0.831373, 0.803922, 0.356863, 1 )
 position = Vector2( 512, 896 )
 texture = ExtResource( 7 )
 
 [node name="SpawnUp" type="Node2D" parent="." index="6"]
+visible = false
 position = Vector2( 512, 352 )
 
 [node name="SpawnDown" type="Node2D" parent="." index="7"]
+visible = false
 position = Vector2( 512, 1600 )
 
 [node name="SpawnRight" type="Node2D" parent="." index="8"]
+visible = false
 position = Vector2( 928, 896 )
 
 [node name="SpawnLeft" type="Node2D" parent="." index="9"]
+visible = false
 position = Vector2( 160, 896 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10"]
 
-[node name="background" type="Sprite" parent="." index="12"]
+[node name="background" type="Sprite" parent="." index="11"]
 position = Vector2( 540, 960 )
 texture = ExtResource( 8 )
