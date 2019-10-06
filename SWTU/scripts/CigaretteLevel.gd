@@ -17,6 +17,7 @@ func _on_finsh(var button):
 	selButton = button
 
 func _ready():
+	._ready()
 	randomize()
 	random_bboy()
 	

@@ -17,10 +17,6 @@ func round_finished(lost):
 		lifes -= 1
 	life_lost = lost
 
-func round_lost():
-	lifes -= 1
-	life_lost = true
-
 func get_time_modifier():
 	return pow(0.92, round_counter)
 

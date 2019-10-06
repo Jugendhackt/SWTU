@@ -9,6 +9,7 @@ func _on_LevelTimer_timeout():
 	loose()
 
 func _ready():
+	print("Called ready in Level")
 	var difficulty = Globals.get_difficulty()
 	print("Level difficulty: " + str(difficulty))
 	timer.start(baseTime*Globals.get_time_modifier())
@@ -18,7 +19,7 @@ func _process(delta):
 	bar.value = timer.time_left / (baseTime * Globals.get_time_modifier()) * 100#
 
 func finish():
-	Globals.round_finished()
+	Globals.round_finished(false)
 	Globals.random_level()
 
 func adjust_to_difficulty():
@@ -27,5 +28,5 @@ func adjust_to_difficulty():
 func loose():
 	print("You lost a life")
 	Globals.lifes -= 1
-	Globals.round_finished()
+	Globals.round_finished(true)
 	Globals.random_level()
