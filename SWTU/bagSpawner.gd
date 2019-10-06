@@ -18,6 +18,7 @@ func onTimeOut():
 	get_parent().add_child(bag)
 	bag.setPosition(position.x,position.y)
 	bag.go()
+	get_parent().
 	
 	var tMod = Globals.get_time_modifier()
 	diffOffset = rand.randf_range(4 * tMod,30 * tMod)

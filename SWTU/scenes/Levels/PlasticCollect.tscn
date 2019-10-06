@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Node2D.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Plastic/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Levels/endCollider.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Plastic/Plastik Mensch Background.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Levels/endCollider.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1096.24, 10 )
@@ -17,12 +18,13 @@ one_shot = true
 human = true
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 509.337, 973.631 )
+position = Vector2( 537.337, 964.631 )
 z_index = -5
+texture = ExtResource( 3 )
 
 [node name="endCollider" type="KinematicBody2D" parent="."]
 position = Vector2( 0, 1932 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="endColliderShape " type="CollisionShape2D" parent="endCollider"]
 shape = SubResource( 1 )
@@ -32,6 +34,7 @@ margin_left = 1088.0
 margin_right = 2988.0
 margin_bottom = 48.0
 rect_rotation = 89.9999
+rect_scale = Vector2( 1.00117, 1 )
 value = 10.0
 percent_visible = false
 [connection signal="timeout" from="LevelTimer" to="." method="level_end"]

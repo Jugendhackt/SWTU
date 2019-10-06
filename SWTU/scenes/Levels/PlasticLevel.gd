@@ -24,3 +24,6 @@ func handlePlayerCollision(var collider: KinematicCollision2D):
 	
 func level_end():
 	finish()
+	
+func add_bag(bag,x):
+	pass
