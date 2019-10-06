@@ -1,14 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Node2D.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Plastic/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Plastic/Plastik Schildkröte Background.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Levels/endCollider.gd" type="Script" id=3]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1096.24, 10 )
+
+[node name="PlasticCollectLevel" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="LevelTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+human = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 509.337, 973.631 )
+z_index = -5
+
+[node name="endCollider" type="KinematicBody2D" parent="."]
+position = Vector2( 0, 1932 )
+script = ExtResource( 3 )
+
+[node name="endColliderShape " type="CollisionShape2D" parent="endCollider"]
+shape = SubResource( 1 )
 
 [node name="TimerBar" type="ProgressBar" parent="."]
 margin_left = 1088.0
@@ -17,11 +34,4 @@ margin_bottom = 48.0
 rect_rotation = 89.9999
 value = 10.0
 percent_visible = false
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-human = true
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 509.337, 973.631 )
-z_index = -5
-texture = ExtResource( 3 )
+[connection signal="timeout" from="LevelTimer" to="." method="level_end"]

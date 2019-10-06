@@ -21,3 +21,6 @@ func _physics_process(delta):
 	
 func handlePlayerCollision(var collider: KinematicCollision2D):
 	loose()
+	
+func level_end():
+	finish()
