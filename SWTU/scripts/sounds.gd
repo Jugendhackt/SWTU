@@ -1,7 +1,4 @@
-extends "res://scripts/Level.gd"
-
-onready var badboy = load("res://scenes/BadBoy.tscn")
-const dirs = ["Up", "Left", "Down", "Right"]
+extends Node2D
 
 var random = null
 
@@ -10,16 +7,12 @@ var selButton = ""
 
 var player = AudioStreamPlayer.new()
 
-signal btns_ready
-
 func _on_finsh(var button):
 	roundFinished = true
 	selButton = button
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	randomize()
-	random_bboy()
-	
 	random = randi()%4+1
 	self.add_child(player)
 	
@@ -30,7 +23,7 @@ func _ready():
 	
 	yield(get_tree().create_timer(0.2), "timeout")
 	
-	var dir = "res://sounds/zigarettenstampfen_"
+	var dir = "res://zigarettenstampfen_"
 	dir += String(random)
 	dir += ".wav"
 	player.stream = load(dir)
@@ -41,18 +34,16 @@ func _ready():
 		player.volume_db = 11
 	
 	player.play()
-
-func random_bboy():
-	var bbinst = badboy.instance()
-	get_node("Spawn" + dirs[rand_range(0, dirs.size())]).add_child(bbinst)
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(roundFinished == true && !player.playing):
-		roundFinished = false
+	if(player.playing):
+		_deactivateBtns()
+	else:
 		_activateBtns()
-		
-		emit_signal("btns_ready")
+
+	if(roundFinished == true):
+		roundFinished = false
 		
 		if(random == 1):
 			if(selButton == "left"):
@@ -82,7 +73,7 @@ func _process(delta):
 		
 		yield(get_tree().create_timer(2.0), "timeout")
 		
-		var dir = "res://sounds/zigarettenstampfen_"
+		var dir = "res://zigarettenstampfen_"
 		dir += String(random)
 		dir += ".wav"
 		player.stream = load(dir)
