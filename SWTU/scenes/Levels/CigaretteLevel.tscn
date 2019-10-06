@@ -17,7 +17,7 @@
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
-[node name="CigaretteLevel" index="0" instance=ExtResource( 1 )]
+[node name="CigaretteLevel" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 baseTime = 15
 
