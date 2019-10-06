@@ -48,26 +48,33 @@ func _process(delta):
 		if(random == 1):
 			if(selButton == "left"):
 				print("Left? Thats right!")
+				correct()
 			else:
 				print("Thats false!")
+				wrong()
 				
 		elif(random == 2):
 			if(selButton == "right"):
 				print("Right? Thats right!")
+				correct()
 			else:
 				print("Thats false!")
+				wrong()
 				
 		elif(random == 3):
 			if(selButton == "top"):
 				print("Top? Thats right!")
+				correct()
 			else:
 				print("Thats false!")
-				
+				wrong()
 		elif(random == 4):
 			if(selButton == "bottom"):
 				print("Bottom? Thats right!")
+				correct()
 			else:
 				print("Thats false!")
+				wrong()
 				
 		random = randi()%4+1
 		
@@ -85,6 +92,17 @@ func _process(delta):
 		
 		player.play()
 			
+
+func correct():
+	$Label.text = "CORRECT"
+	$Label.modulate = Color(0, 1, 0.25098)
+	$Label/Timer.start(1)
+
+func wrong():
+	$Label.text = "WRONG"
+	$Label.modulate = Color(1, 0, 0)
+	$Label/Timer.start(1)
+
 func _deactivateBtns():
 	$right.disabled = true
 	$left.disabled = true
@@ -96,3 +114,6 @@ func _activateBtns():
 	$left.disabled = false
 	$top.disabled = false
 	$bottom.disabled = false
+
+func _on_LabelTimer_timeout():
+	$Label.text = ""

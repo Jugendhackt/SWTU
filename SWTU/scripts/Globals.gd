@@ -6,11 +6,20 @@ export var round_counter = 0
 
 export(Array, PackedScene) var levels = []
 
+var life_lost = false
+
 func _ready():
 	randomize()
 
-func round_finished():
+func round_finished(lost):
 	round_counter += 1
+	if lost:
+		lifes -= 1
+	life_lost = lost
+
+func round_lost():
+	lifes -= 1
+	life_lost = true
 
 func get_time_modifier():
 	return pow(0.92, round_counter)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Node2D.gd" type="Script" id=1]
 [ext_resource path="res://left.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://top.gd" type="Script" id=4]
 [ext_resource path="res://bottom.gd" type="Script" id=5]
 [ext_resource path="res://Zigaretten Background.png" type="Texture" id=6]
+[ext_resource path="res://Bannie.tres" type="DynamicFont" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -55,5 +56,16 @@ text = "Bottom"
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 540, 960 )
+position = Vector2( 537.562, 958.537 )
 texture = ExtResource( 6 )
+
+[node name="Label" type="RichTextLabel" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 418.419
+margin_top = 561.941
+margin_right = 700.419
+margin_bottom = 657.941
+custom_fonts/normal_font = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Label"]
+[connection signal="timeout" from="Label/Timer" to="." method="_on_LabelTimer_timeout"]
