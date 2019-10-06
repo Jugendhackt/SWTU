@@ -47,6 +47,7 @@ margin_top = 1620.0
 margin_right = 1080.0
 margin_bottom = 1920.0
 rect_min_size = Vector2( 400, 300 )
+
 color = Color( 0, 0.172549, 0.952941, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
